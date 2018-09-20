@@ -44,7 +44,7 @@
         <div class="row" style="display: flex;">
           <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
           <div class="col-md-7 text-right">
-            <h3 class="title-super text-uppercase text-thin">Student Portal</h3>
+            <h3 class="title-super text-uppercase text-thin">Teacher Portal</h3>
             <h4 class="text-uppercase">Information you need.</h4>
           </div>
         </div>

@@ -20,6 +20,7 @@ th {text-align: left;}
 
 <?php
 $q = intval($_GET['q']);
+echo "$q";
 
 $conn = mysqli_connect('localhost','root','','registration');
 if (!$conn) {
