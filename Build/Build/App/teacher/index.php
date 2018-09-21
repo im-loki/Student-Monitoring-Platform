@@ -82,7 +82,7 @@
         <div class="row text-center" style="
         display: inline-flex; ">
           <div class="col-md-6">
-            <img src="./stylesheets/555x300" class="img-responsive" data-toggle="modal" data-target="#project1">
+            <img src="./stylesheets/555x300.jpg" class="img-responsive" data-toggle="modal" data-target="#project1">
             <h3>Attendance</h3>
             <p>
               <button onclick="displayDate1()">Click me?</button>
@@ -113,7 +113,7 @@
             </p>
           </div>
           <div class="col-md-6">
-            <img src="./stylesheets/555x300" class="img-responsive">
+            <img src="./stylesheets/Youth-employability-555x300.jpg" class="img-responsive">
             <h3>Internals</h3>
             <p>
               <button onclick="displayDate2()">Click me?</button>
