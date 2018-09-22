@@ -1,11 +1,11 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <style>
 table {
     width: 100%;
     border-collapse: collapse;
+    text-align: left;
 }
 
 table, td, th {
@@ -18,36 +18,45 @@ th {text-align: left;}
 </head>
 <body>
 
-<?php
-$q = intval($_GET['q']);
+ <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "registration";
 
-$conn = mysqli_connect('localhost','root','','registration');
-if (!$conn) {
-    die('Could not connect: ' . mysqli_error($conn));
+$q=$_GET['q'];
+echo "$q".", your attendance details are:"."<br>"."<hr>";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-$sql="SELECT * FROM users WHERE id = $q";
-$result = mysqli_query($conn,$sql);
+$sql = "SELECT USERNAME,EMAIL FROM users WHERE USERNAME="."'".$q."'";
+$result = $conn->query($sql);
 
-if(mysqli_num_rows($result)==0){
-    echo "No data.";
-}
+if ($result->num_rows > 0) {
+    // output data of each row
 
-echo "<table>
-<tr>
-<th>ID</th>
-<th>Username</th>
-<th>Email</th>
-</tr>";
-while($row = mysqli_fetch_assoc($result)) {
-    echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>";
-    echo "<td>" . $row['username'] . "</td>";
-    echo "<td>" . $row['email'] . "</td>";
-    echo "</tr>";
+    echo "<table>
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    </tr>";
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['USERNAME'] . "</td>";
+        echo "<td>" . $row['EMAIL'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";    
+} else {
+    echo "0 results";
 }
-echo "</table>";
-mysqli_close($conn);
-?>
+$conn->close();
+?> 
+
 </body>
 </html> 
