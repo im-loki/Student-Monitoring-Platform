@@ -118,28 +118,11 @@
             <p>
               <button onclick="displayDate2()">Click me?</button>
               <script>
-              function displayDate2() {
-                  var h=name+", "+Date();
-                  document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
-                        document.getElementById("demo2").innerHTML = "";
-                        return;
-                    } else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                document.getElementById("demo2").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "queryengine02.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-                        xmlhttp.send();
-                     }
-                    }
+                function displayDate2(){
+                  location.replace("https://www.google.com");
+                }
               </script>
+              
 
               <p id="demo2"><?php
                   echo "This is where javascript, php and mysql interactions are displayed";
