@@ -25,7 +25,7 @@ $password = "";
 $dbname = "registration";
 
 $q=$_GET['q'];
-echo "$q".", your attendance details are:"."<br>"."<hr>";
+echo "$q".", your internals details are:"."<br>"."<hr>";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

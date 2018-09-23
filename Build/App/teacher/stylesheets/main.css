@@ -93,3 +93,8 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.img-prop{
+    width: 555px;
+    height: 300px;
+}
