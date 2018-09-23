@@ -2,13 +2,13 @@
   session_start(); 
 
   if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
   }
   if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
   }
 ?>
 <!DOCTYPE html>
@@ -123,7 +123,7 @@
                   document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
                   //use this variable name to query the database.
                   //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
+                    if (name.length == 0) {
                         document.getElementById("demo2").innerHTML = "";
                         return;
                     } else {
@@ -138,7 +138,7 @@
                         //update gethint.php build
                         xmlhttp.send();
                      }
-                    }
+                   }
               </script>
 
               <p id="demo2"><?php
