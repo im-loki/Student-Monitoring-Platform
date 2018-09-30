@@ -147,8 +147,112 @@
             </p>
           </div>
         </div>
+        <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <a href="http://localhost/Build/App/teacher/atten_update_edit"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> Update attendance</h4>
+            <br>
+            <p style="color: #737373"> This function allows you completely update attendance of student. Requires usn of the student </p>
+          </div>
+        </div>
         <br>
         <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <a href="http://localhost/Build/App/teacher/mark_update_edit"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> Update Marks</h4>
+            <br>
+            <p style="color: #737373"> This function allows you completely update Marks of student. Requires usn of the student </p>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> View Attendance</h4>
+            <br>
+            <p style="color: #737373"> This function allows you completely View attendance of student. Requires usn of the student </p>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> View Marks</h4>
+            <br>
+            <p style="color: #737373"> This function allows you completely View Marks of student. Requires usn of the student </p>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> View All Attendance</h4>
+            <br>
+            <p style="color: #737373"> This function allows you completely View attendance of all students.</p>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> View All Marks</h4>
+            <br>
+            <p style="color: #737373"> This function allows you completely View Marks of all students.</p>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> Class Average </h4>
+            <br>
+            <p style="color: #737373"> This function allows you to view Avergae marks of all students of a given sem. </p>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> Mentor Reports</h4>
+            <br>
+            <p style="color: #737373"> This function allows you to write a report on the students performance. Requires usn of the student </p>
+          </div>
+        </div>
+        <br>
+        <hr>
+
         <div class="row text-center">
           <div class="col-md-12">
           <p>This is beta site under development. Policies and features are prone to abruptly change during this stage.

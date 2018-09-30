@@ -26,6 +26,9 @@
   	<p>
   		Not yet a member? <a href="register.php">Sign up</a>
   	</p>
+    <p>
+      Cancel and return to home page.<a href="http://localhost/Build">Portal</a>
+    </p>
   </form>
 </body>
 </html>
