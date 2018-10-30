@@ -6,7 +6,7 @@
 	}
 	$uri .= $_SERVER['HTTP_HOST'];
 	echo "hello";
-	header('Location: '.$uri.'/Build/App/index.html');
+	header('Location: '.$uri.'/Build/App/index.php');
 	exit;
 ?>
 Something is wrong with the XAMPP installation :-(

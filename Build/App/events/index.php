@@ -2,13 +2,13 @@
   session_start(); 
 
   if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
   }
   if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
   }
 ?>
 <!DOCTYPE html>
@@ -22,13 +22,56 @@
 <link href="https://cdn.bootcss.com/tether/1.3.2/css/tether.min.css" rel="stylesheet">
 <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./stylesheets/main.css">
+<script>
+ function displayDate1() {
+  var h=name+", "+Date();
+    document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+    if (name.length == 0) {
+      document.getElementById("demo1").innerHTML = "";
+      return;
+      } else {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo1").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+       xmlhttp.send();
+      }
+    }
+  function displayDate2() { 
+    var h=name+", "+Date();
+    document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+    if (name.length == 0) {
+    document.getElementById("demo2").innerHTML = "";
+    return;
+    } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo2").innerHTML = this.responseText;
+       }
+   };
+    xmlhttp.open("GET", "queryengine02.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+    xmlhttp.send();
+  }
+}
+</script>
 
 </head>
   <body>
      <nav class="navbar navbar-fixed-top navbar-dark ">
             <ul>
-             <li><a href="http://localhost/Build">Home</a></li>
-              <li><a href="http://localhost/Build/App/teacher">Teacher</a></li>
+              <li><a href="http://localhost/Build">Home</a></li>
               <li><a href="http://localhost/Build/App/student">Student</a></li>
               <li><a href="http://localhost/Build/App/materials">Materials</a></li>
               <li><a href="http://localhost/Build/App/events">Events</a></li>
@@ -44,7 +87,7 @@
         <div class="row" style="display: flex;">
           <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
           <div class="col-md-7 text-right">
-            <h3 class="title-super text-uppercase text-thin">Student Portal</h3>
+            <h3 class="title-super text-uppercase text-thin">Event Portal</h3>
             <h4 class="text-uppercase">Information you need.</h4>
           </div>
         </div>
@@ -82,56 +125,28 @@
         <div class="row text-center" style="
         display: inline-flex; ">
           <div class="col-md-6">
-            <img src="./stylesheets/555x300" class="img-responsive" data-toggle="modal" data-target="#project1">
-            <h3>Attendance</h3>
+            <img src="./stylesheets/555x300" class="img-responsive img-prop" data-toggle="modal" data-target="#project1">
+            <h3>Field Trip</h3>
             <p>
               <button onclick="displayDate1()">Click me?</button>
-              <script>
-              function displayDate1() {
-                  var h=name+", "+Date();
-                  document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
-                        document.getElementById("demo1").innerHTML = "";
-                        return;
-                    } else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                document.getElementById("demo1").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-                        xmlhttp.send();
-                     }
-                    }
-              </script>
+              
               <p id="demo1"></p>
             </p>
           </div>
           <div class="col-md-6">
-            <img src="./stylesheets/555x300" class="img-responsive">
-            <h3>Internals</h3>
+            <img src="./stylesheets/555x300" class="img-responsive img-prop">
+            <h3>Workshop</h3>
             <p>
               <button onclick="displayDate2()">Click me?</button>
-              <script>
-                function displayDate2(){
-                  location.replace("https://www.google.com");
-                }
-              </script>
-              
-
               <p id="demo2"><?php
                   echo "This is where javascript, php and mysql interactions are displayed";
                   ?></p>
             </p>
           </div>
         </div>
-        <br>
         <hr>
+        
+
         <div class="row text-center">
           <div class="col-md-12">
           <p>This is beta site under development. Policies and features are prone to abruptly change during this stage.

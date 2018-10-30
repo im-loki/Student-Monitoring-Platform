@@ -22,40 +22,18 @@ th {text-align: left;}
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "registration";
+$dbname = "student01";
 
 $q=$_GET['q'];
-echo "$q".", your attendance details are:"."<br>"."<hr>";
-
+$usn=strtoupper($q);
+$event=1;
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$db = mysqli_connect('localhost', 'root', '', 'student01');
 
-$sql = "SELECT USERNAME,EMAIL FROM users WHERE USERNAME="."'".$q."'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-
-    echo "<table>
-    <tr>
-    <th>Name</th>
-    <th>Email</th>
-    </tr>";
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['USERNAME'] . "</td>";
-        echo "<td>" . $row['EMAIL'] . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";    
-} else {
-    echo "0 results";
-}
-$conn->close();
+$query = "INSERT INTO participates (usn,event_id) 
+          VALUES('$usn', '$event')";
+mysqli_query($db, $query);
+echo "You have been added to the event";
 ?> 
 
 </body>

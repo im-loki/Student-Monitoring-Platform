@@ -22,13 +22,11 @@
 <link href="https://cdn.bootcss.com/tether/1.3.2/css/tether.min.css" rel="stylesheet">
 <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./stylesheets/main.css">
-
 </head>
   <body>
      <nav class="navbar navbar-fixed-top navbar-dark ">
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
-              <li><a href="http://localhost/Build/App/teacher">Teacher</a></li>
               <li><a href="http://localhost/Build/App/student">Student</a></li>
               <li><a href="http://localhost/Build/App/materials">Materials</a></li>
               <li><a href="http://localhost/Build/App/events">Events</a></li>

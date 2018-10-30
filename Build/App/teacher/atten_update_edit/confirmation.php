@@ -15,10 +15,6 @@
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li><a href="http://localhost/Build/App/teacher">Teacher</a></li>
-              <li><a href="http://localhost/Build/App/student">Student</a></li>
-              <li><a href="http://localhost/Build/App/materials">Materials</a></li>
-              <li><a href="http://localhost/Build/App/events">Events</a></li>
-              <li><a href="http://localhost/Build/App/survey">Survey</a></li>
               <i><a href=""></a></i>
             </ul>
       </nav>
@@ -29,7 +25,7 @@
           <div class="col-md-6">
 	            <img src="./stylesheets/555x300" class="img-responsive" data-toggle="modal" data-target="#project1">
 	            <h3>Add more enteries.</h3>
-	            <p><a href="http://localhost/trial/atten_update_edit">Link to Register</a></p>
+	            <p><a href="http://localhost/Build/App/teacher/atten_update_edit">Link to Register</a></p>
           </div>
           <div class="col-md-6">
 	            <img src="./stylesheets/555x300" class="img-responsive">

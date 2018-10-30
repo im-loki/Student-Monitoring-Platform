@@ -15,10 +15,6 @@
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li><a href="http://localhost/Build/App/teacher">Teacher</a></li>
-              <li><a href="http://localhost/Build/App/student">Student</a></li>
-              <li><a href="http://localhost/Build/App/materials">Materials</a></li>
-              <li><a href="http://localhost/Build/App/events">Events</a></li>
-              <li><a href="http://localhost/Build/App/survey">Survey</a></li>
               <i><a href=""></a></i>
             </ul>
       </nav>
