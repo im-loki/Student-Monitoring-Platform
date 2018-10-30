@@ -39,7 +39,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-
+    // get dynamic header of the from course table. Refer the forms of teacher for reference.
     echo "<table>
     <tr>
     <th>Name</th>

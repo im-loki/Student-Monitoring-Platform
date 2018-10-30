@@ -22,6 +22,101 @@
 <link href="https://cdn.bootcss.com/tether/1.3.2/css/tether.min.css" rel="stylesheet">
 <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./stylesheets/main.css">
+<script>
+  function showHint01(str) {
+      if (str.length == 0) { 
+        document.getElementById("txtHint01").innerHTML = "";
+        return;
+        } else {
+         var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("txtHint01").innerHTML = this.responseText;
+            }
+      }
+      xmlhttp.open("GET", "gethint01.php?q="+str, true);
+      xmlhttp.send();
+   }
+  }
+  function showHint02(str) {
+      if (str.length == 0) { 
+        document.getElementById("txtHint02").innerHTML = "";
+        return;
+        } else {
+         var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("txtHint02").innerHTML = this.responseText;
+            }
+      }
+      xmlhttp.open("GET", "gethint02.php?q="+str, true);
+      xmlhttp.send();
+   }
+  }
+ function displayDate1() {
+  var h=name+", "+Date();
+    document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+    if (name.length == 0) {
+      document.getElementById("demo1").innerHTML = "";
+      return;
+      } else {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo1").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+       xmlhttp.send();
+      }
+    }
+  function displayDate2() { 
+    var h=name+", "+Date();
+    document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+    if (name.length == 0) {
+    document.getElementById("demo2").innerHTML = "";
+    return;
+    } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo2").innerHTML = this.responseText;
+       }
+   };
+    xmlhttp.open("GET", "queryengine02.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+    xmlhttp.send();
+  }
+}
+  function displayDate3() {
+  var h=name+", "+Date();
+    document.getElementById("txtHint03").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+    if (name.length == 0) {
+      document.getElementById("txtHint03").innerHTML = "";
+      return;
+      } else {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("txtHint03").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+       xmlhttp.send();
+      }
+    }
+</script>
 
 </head>
   <body>
@@ -29,10 +124,6 @@
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li><a href="http://localhost/Build/App/teacher">Teacher</a></li>
-              <li><a href="http://localhost/Build/App/student">Student</a></li>
-              <li><a href="http://localhost/Build/App/materials">Materials</a></li>
-              <li><a href="http://localhost/Build/App/events">Events</a></li>
-              <li><a href="http://localhost/Build/App/survey">Survey</a></li>
             </ul>
       </nav>
     <div class="container content">
@@ -86,29 +177,7 @@
             <h3>Attendance</h3>
             <p>
               <button onclick="displayDate1()">Click me?</button>
-              <script>
-              function displayDate1() {
-                  var h=name+", "+Date();
-                  document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
-                        document.getElementById("demo1").innerHTML = "";
-                        return;
-                    } else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                document.getElementById("demo1").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-                        xmlhttp.send();
-                     }
-                    }
-              </script>
+              
               <p id="demo1"></p>
             </p>
           </div>
@@ -117,30 +186,6 @@
             <h3>Internals</h3>
             <p>
               <button onclick="displayDate2()">Click me?</button>
-              <script>
-              function displayDate2() {
-                  var h=name+", "+Date();
-                  document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
-                        document.getElementById("demo2").innerHTML = "";
-                        return;
-                    } else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                document.getElementById("demo2").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "queryengine02.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-                        xmlhttp.send();
-                     }
-                    }
-              </script>
-
               <p id="demo2"><?php
                   echo "This is where javascript, php and mysql interactions are displayed";
                   ?></p>
@@ -174,35 +219,47 @@
         </div>
         <br>
         <hr>
+        <!-- ctrl+shift+/ -->
+        <!-- From here the functionality must be updated -->
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+              <img src="./stylesheets/100x100" class="img-responsive">
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
             <h4> View Attendance</h4>
             <br>
             <p style="color: #737373"> This function allows you completely View attendance of student. Requires usn of the student </p>
+            <p><b>Start typing a USN in the input field below:</b></p>
+            <form> 
+            USN: <input type="text" onkeyup="showHint01(this.value)">
+            </form>
+            <p>Attendance: <span id="txtHint01"></span></p>
           </div>
         </div>
         <br>
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <img src="./stylesheets/100x100" class="img-responsive">
             <br>
           </div>
-          <div class="col-md-10" style="display: grid;">
+          <div class="col-md-10" id="hmm" style="display: grid;">
             <h4> View Marks</h4>
             <br>
             <p style="color: #737373"> This function allows you completely View Marks of student. Requires usn of the student </p>
+            <p><b>Start typing a USN in the input field below:</b></p>
+            <form> 
+            USN: <input type="text" onkeyup="showHint02(this.value)">
+            </form>
+            <p>Marks: <span id="txtHint02"></span></p>
           </div>
         </div>
         <br>
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <a href="http://localhost/Build/App/teacher/Attendance_all"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
@@ -215,7 +272,7 @@
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <a href="http://localhost/Build/App/teacher/marks_all"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
@@ -228,20 +285,24 @@
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <img src="./stylesheets/100x100" class="img-responsive">
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
             <h4> Class Average </h4>
             <br>
             <p style="color: #737373"> This function allows you to view Avergae marks of all students of a given sem. </p>
+            <p>
+              <button onclick="displayDate3()">Click me?</button>
+              <p><span id="txtHint03"></span></p>
+            </p>
           </div>
         </div>
         <br>
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <button onclick="displayDate2()"><img src="./stylesheets/100x100" class="img-responsive"></button>
+            <a href="http://localhost/Build/App/teacher/mentor_edit"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">

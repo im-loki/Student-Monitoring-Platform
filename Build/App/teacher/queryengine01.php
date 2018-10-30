@@ -22,10 +22,9 @@ th {text-align: left;}
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "registration";
+$dbname = "student01";
 
 $q=$_GET['q'];
-echo "$q".", your attendance details are:"."<br>"."<hr>";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -34,7 +33,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT USERNAME,EMAIL FROM users WHERE USERNAME="."'".$q."'";
+$ola = "select name as name from teacher where ssn='$q';";
+$hmm = $conn->query($ola);
+if ($hmm->num_rows > 0) {
+    while($nam00 = $hmm->fetch_assoc())
+    $nam01="".$nam00['name']."";
+} else{
+    $nam01=$q;
+}
+echo $nam01.", your class performance details are:"."<br>"."<hr>";
+
+$sql = "SELECT c.sem, c.sec, s.NAME as name, AVG(test1) as test1, AVG(test2) as test2, AVG(test3) as test3, AVG(finalia) as finalia FROM class c, teacher t, teaches th, course s, marks m, student st WHERE t.ssn = '$q' AND th.ssn = t.ssn AND th.cin = s.cin AND m.cin = th.cin AND m.usn = st.usn AND st.sem = c.sem AND st.sec = c.sec GROUP BY c.sem, c.sec, s.name ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -42,13 +51,23 @@ if ($result->num_rows > 0) {
 
     echo "<table>
     <tr>
-    <th>Name</th>
-    <th>Email</th>
+    <th>sem</th>
+    <th>sec</th>
+    <th>name</th>
+    <th>test1</th>
+    <th>test2</th>
+    <th>test3</th>
+    <th>finalia</th>
     </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row['USERNAME'] . "</td>";
-        echo "<td>" . $row['EMAIL'] . "</td>";
+        echo "<td>" . $row['sem'] . "</td>";
+        echo "<td>" . $row['sec'] . "</td>";
+        echo "<td>" . $row['name'] . "</td>";
+        echo "<td>" . $row['test1'] . "</td>";
+        echo "<td>" . $row['test2'] . "</td>";
+        echo "<td>" . $row['test3'] . "</td>";
+        echo "<td>" . $row['finalia'] . "</td>";
         echo "</tr>";
     }
     echo "</table>";    

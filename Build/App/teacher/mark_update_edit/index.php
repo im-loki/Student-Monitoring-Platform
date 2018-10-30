@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+<?php include('hello.php') ?>
 <!DOCTYPE HTML>  
 <html>
 <head>
@@ -12,14 +12,16 @@
 <style>
 .error {color: #FF0000;}
 </style>
-<?php $subname=['Subject1','Subject2','Subject3','Subject4','Subject5','Subject6'] ;
+<?php $attnname=['Atten'] ;
+$cin=['subjectcode'];
+$ssn=$_SESSION['username'];
 $count=0; ?>
 <?php
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "ac";
-
+    $dbname = "student01";
+    echo "in sem";
     if (empty($_POST["sem"])) {
     $semErr = "SEM is required";
       } else {
@@ -33,15 +35,18 @@ $count=0; ?>
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT subject FROM courses WHERE sem="."'".$sem."'";
+    $sql = "select c.name as name,c.cin as cin from teacher t,teaches th,course c where t.ssn='$ssn' and t.ssn=th.ssn and th.cin=c.cin and c.sem='$sem'";
+    echo "query done";
     $result = $conn->query($sql);
     $i=0;
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
-        $subname[$i]=$row['subject'];
+        $attenname[$i]=$row['name'];
+        $cin[$i]=$row['cin'];
         $i++;
       }
     }
+    echo $cin[0];
   ?>
 </head>
 <body>
@@ -50,18 +55,44 @@ $count=0; ?>
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li><a href="http://localhost/Build/App/teacher">Teacher</a></li>
-              <li><a href="http://localhost/Build/App/student">Student</a></li>
-              <li><a href="http://localhost/Build/App/materials">Materials</a></li>
-              <li><a href="http://localhost/Build/App/events">Events</a></li>
-              <li><a href="http://localhost/Build/App/survey">Survey</a></li>
             </ul>
       </nav>
-<div class="row">
-  <div class="col-md-12">
-    <h2>Update Marks Page.</h2>
-    <p style="text-align: right"> <a href="http://localhost/Build/App/teacher/index.php?logout='1'" style="color: red;">logout</a> </p>
-  </div>
-</div>
+<div class="row" style="display: flex;">
+          <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
+          <div class="col-md-7 text-right">
+            <h3 class="title-super text-uppercase text-thin">update atten</h3>
+            <h4 class="text-uppercase">Information you need.</h4>
+          </div>
+        </div>
+        <div>
+          <hr>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-12">
+              <?php if (isset($_SESSION['success'])) : ?>
+                <div class="error success" >
+                  <h3>
+                    <?php 
+                      echo $_SESSION['success']; 
+                      unset($_SESSION['success']);
+                    ?>
+                  </h3>
+                </div>
+              <?php endif ?>
+              <!-- logged in user information -->
+              <?php  if (isset($_SESSION['username'])) : ?>
+                <p style="text-align: right">Welcome <strong><?php echo $_SESSION['username']; 
+                $ssn=$_SESSION['username']; ?></strong></p>
+                <?php
+                    $name = $_SESSION['username'];
+                   echo '<script>'; 
+                   echo 'var name = '.json_encode($name).';';
+                   echo '</script>';
+                   ?>
+                <p style="text-align: right"> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+              <?php endif ?>
+        </div>
+        </div>
 <div class="row">
     <div class="col-md-8">
         <hr>
@@ -90,34 +121,16 @@ $count=0; ?>
 <div class="row">
     <div class="col-md-12">
         <br>
-  <form method="post" action="index.php">  
+  <form method="post" action="hello.php">  
     USN: <input type="text" name="usn" value="<?php echo $usn;?>">
     <span class="error">* <?php echo $usnErr;?></span>
     <br><br>
-    Int No.: <input type="text" name="intno" value="<?php echo $intno;?>">
-    <span class="error">* <?php echo $intnoErr;?></span>
-    <br><br>
-    <?php echo $subname[0].":" ;?> <input type="text" name="Subject1" value="<?php echo $Subject1;?>">
-    <span class="error">* <?php echo $Subject1Err;?></span>
-    <br><br>
-    <?php echo $subname[1].":" ;?> <input type="text" name="Subject2" value="<?php echo $Subject2;?>">
-    <span class="error">* <?php  echo $Subject2Err;?></span>
-    <br><br>
-    <?php echo $subname[2].":" ;?> <input type="text" name="Subject3" value="<?php echo $Subject3;?>">
-    <span class="error">* <?php  echo $Subject3Err;?></span>
-    <br><br>
-    <?php echo $subname[3].":" ; ?><input type="text" name="Subject4" value="<?php echo $Subject4;?>">
-    <span class="error">* <?php  echo $Subject4Err;?></span>
-    <br><br>
-    <?php echo $subname[4].":" ; ?><input type="text" name="Subject5" value="<?php echo $Subject5;?>">
-    <span class="error">* <?php echo $Subject5Err;?></span>
-    <br><br>
-    <?php echo $subname[5].":" ; ?><input type="text" name="Subject6" value="<?php echo $Subject6;?>">
-    <span class="error">* <?php echo $Subject6Err;?></span>
+    Code: <input type="text" name="code" value="<?php echo $cin[0]; ?>">
+    <span class="error">* <?php echo $codeErr; ?></span>
+    <?php echo $cin[0].":" ;?> <input type="text" name="test" value="<?php echo $test;?>">
+    <span class="error">* <?php echo $testErr;?></span>
     <br><br>
 
-    Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
-    <br><br>
     Sem:
     <input type="radio" name="sem" <?php if (isset($sem) && $sem=="3") echo "checked";?> value="3">3rd Sem
     <input type="radio" name="sem" <?php if (isset($sem) && $sem=="4") echo "checked";?> value="4">4th Sem
@@ -127,6 +140,13 @@ $count=0; ?>
     <input type="radio" name="sem" <?php if (isset($sem) && $sem=="8") echo "checked";?> value="8">8th Sem  
     <span class="error">* <?php
      echo $semErr;?></span>
+    <br>
+     testno:
+    <input type="radio" name="tno" <?php if (isset($tno) && $tno=="1") echo "checked";?> value="1">1nd tno
+    <input type="radio" name="tno" <?php if (isset($tno) && $tno=="2") echo "checked";?> value="2">2th tno
+    <input type="radio" name="tno" <?php if (isset($tno) && $tno=="3") echo "checked";?> value="3">3th tno
+    <span class="error">* <?php
+     echo $tnoErr;?></span>
     <br>
     <input type="submit" name="submit" value="Submit">  
   </form>
