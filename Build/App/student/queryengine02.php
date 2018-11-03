@@ -22,7 +22,7 @@ th {text-align: left;}
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "registration";
+$dbname = "student01";
 
 $q=$_GET['q'];
 echo "$q".", your attendance details are:"."<br>"."<hr>";
@@ -34,7 +34,21 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT USERNAME,EMAIL FROM users WHERE USERNAME="."'".$q."'";
+$sql = "SELECT
+    m.test1,
+    m.test2,
+    m.test3,
+    m.finalia,
+    m.cin,
+    c.name
+FROM
+    marks m,
+    course c
+
+WHERE
+    usn = '$q'";
+
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -42,13 +56,21 @@ if ($result->num_rows > 0) {
     // get dynamic header of the from course table. Refer the forms of teacher for reference.
     echo "<table>
     <tr>
-    <th>Name</th>
-    <th>Email</th>
+    <th>test1</th>
+    <th>test2</th>
+    <th>test3</th>
+    <th>final IA</th>
+    <th>subject code</th>
+    <th>subject name</th>
     </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row['USERNAME'] . "</td>";
-        echo "<td>" . $row['EMAIL'] . "</td>";
+        echo "<td>" . $row['test1'] . "</td>";
+        echo "<td>" . $row['test2'] . "</td>";
+        echo "<td>" . $row['test3'] . "</td>";
+        echo "<td>" . $row['finalia'] . "</td>";
+        echo "<td>" . $row['cin'] . "</td>";
+        echo "<td>" . $row['name'] . "</td>";
         echo "</tr>";
     }
     echo "</table>";    

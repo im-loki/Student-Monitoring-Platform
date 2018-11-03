@@ -22,6 +22,94 @@
 <link href="https://cdn.bootcss.com/tether/1.3.2/css/tether.min.css" rel="stylesheet">
 <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./stylesheets/main.css">
+ <script>
+              function displayDate1() {
+                  var h=name+", "+Date();
+                  document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+                  if (name.length == 0) {
+                        document.getElementById("demo1").innerHTML = "";
+                        return;
+                    } else {
+                        var xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("demo1").innerHTML = this.responseText;
+                            }
+                        };
+                        xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+                        xmlhttp.send();
+                     }
+                    }
+              </script>
+              <script>
+              function displayDate2() {
+                  var h=name+", "+Date();
+                  document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+                  if (name.length == 0) {
+                        document.getElementById("demo2").innerHTML = "";
+                        return;
+                    } else {
+                        var xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("demo2").innerHTML = this.responseText;
+                            }
+                        };
+                        xmlhttp.open("GET", "queryengine02.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+                        xmlhttp.send();
+                     }
+                    }
+                    function displayDate3() {
+                  var h=name+", "+Date();
+                  document.getElementById("demo3").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+                  if (name.length == 0) {
+                        document.getElementById("demo3").innerHTML = "";
+                        return;
+                    } else {
+                        var xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("demo3").innerHTML = this.responseText;
+                            }
+                        };
+                        xmlhttp.open("GET", "queryengine03.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+                        xmlhttp.send();
+                     }
+                    }
+                    function displayDate4() {
+                  var h=name+", "+Date();
+                  document.getElementById("demo4").innerHTML = h;//redundancy used for understanding 
+                  //use this variable name to query the database.
+                  //see codes of (php-ajax) ajax php and database.
+                  if (name.length == 0) {
+                        document.getElementById("demo4").innerHTML = "";
+                        return;
+                    } else {
+                        var xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("demo4").innerHTML = this.responseText;
+                            }
+                        };
+                        xmlhttp.open("GET", "queryengine04.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+                        xmlhttp.send();
+                     }
+                    }
+              </script>
 </head>
   <body>
      <nav class="navbar navbar-fixed-top navbar-dark ">
@@ -84,29 +172,7 @@
             <h3>Attendance</h3>
             <p>
               <button onclick="displayDate1()">Click me?</button>
-              <script>
-              function displayDate1() {
-                  var h=name+", "+Date();
-                  document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
-                        document.getElementById("demo1").innerHTML = "";
-                        return;
-                    } else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                document.getElementById("demo1").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-                        xmlhttp.send();
-                     }
-                    }
-              </script>
+             
               <p id="demo1"></p>
             </p>
           </div>
@@ -115,31 +181,33 @@
             <h3>Internals</h3>
             <p>
               <button onclick="displayDate2()">Click me?</button>
-              <script>
-              function displayDate2() {
-                  var h=name+", "+Date();
-                  document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
-                        document.getElementById("demo2").innerHTML = "";
-                        return;
-                    } else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                document.getElementById("demo2").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "queryengine02.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-                        xmlhttp.send();
-                     }
-                    }
-              </script>
+              
 
               <p id="demo2"><?php
+                  echo "This is where javascript, php and mysql interactions are displayed";
+                  ?></p>
+            </p>
+          </div>
+        </div>
+        <div class="row text-center" style="
+        display: inline-flex; ">
+          <div class="col-md-6">
+            <img src="./stylesheets/555x300" class="img-responsive" data-toggle="modal" data-target="#project1">
+            <h3>Mentor</h3>
+            <p>
+              <button onclick="displayDate3()">Click me?</button>
+             
+              <p id="demo3"></p>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img src="./stylesheets/555x300" class="img-responsive">
+            <h3>Events</h3>
+            <p>
+              <button onclick="displayDate4()">Click me?</button>
+              
+
+              <p id="demo4"><?php
                   echo "This is where javascript, php and mysql interactions are displayed";
                   ?></p>
             </p>
