@@ -5,6 +5,7 @@ insert into mentor values('2018-11-9 22:54:55','1bi16cs160','focus on what matte
 insert into mentor values('2018-11-18 22:54:55','1bi16cs169','you can do it');
 insert into mentor values('2018-11-28 22:57:55','1bi16cs173','come on give your best');
 insert into mentor values('2018-11-29 22:35:55','1bi16cs181','your the best at what you do');
+
 /*
 1bi16cs001
 1bi16cs108

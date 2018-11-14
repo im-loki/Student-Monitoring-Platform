@@ -1,3 +1,4 @@
+alter table teaches modify column cin varchar(6);
 /*ssn varchar(5) | cin varchar(5)*/
 insert into teaches values('cse01','15cs31');
 insert into teaches values('cse01','15cs32');
