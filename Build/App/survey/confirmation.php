@@ -25,12 +25,12 @@
 		<div class="row text-center" style="
         display: inline-flex; ">
           <div class="col-md-6">
-	            <img src="./stylesheets/555x300" class="img-responsive" data-toggle="modal" data-target="#project1">
-	            <h3>Add more enteries.</h3>
-	            <p><a href="http://localhost/Build/App/survey/survey01.php">Link to Register</a></p>
+	            <img src="./stylesheets/s2.jpg" class="img-responsive" data-toggle="modal" data-target="#project1">
+	            <h3>Take The Survey Again</h3>
+	            <p><a href="http://localhost/Build/App/survey/survey01.php">Link to Survey</a></p>
           </div>
           <div class="col-md-6">
-	            <img src="./stylesheets/555x300" class="img-responsive">
+	            <img src="./stylesheets/home.jpg" class="img-responsive">
 	            <h3>Home</h3>
 	            <p><a href= "http://localhost/Build">Link to Home</a></p>
 	          </div>

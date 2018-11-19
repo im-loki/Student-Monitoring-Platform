@@ -2,9 +2,9 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -22,7 +22,7 @@
             </ul>
       </nav>
 <div class="row" style="display: flex;">
-          <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
+          <div class="col-md-5 title-logo"><img src="./stylesheets/mentor.jpg" height=100px width=100px class="img-responsive"></div>
           <div class="col-md-7 text-right">
             <h3 class="title-super text-uppercase text-thin">Mentor Report</h3>
             <h4 class="text-uppercase">Information you need.</h4>

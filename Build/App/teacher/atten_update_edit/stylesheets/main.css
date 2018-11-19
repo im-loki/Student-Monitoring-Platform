@@ -4,9 +4,6 @@
 	font-weight: 300;
 }
 
-.content{
-    background-color: red;
-}
 .button{
 	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.4s;

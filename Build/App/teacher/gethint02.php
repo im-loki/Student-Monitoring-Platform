@@ -1,6 +1,5 @@
 <?php 
   session_start(); 
-
   if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
@@ -20,36 +19,33 @@ table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    background-color: bisque;
 }
-
 table, td, th {
     border: 1px solid black;
     padding: 5px;
 }
-
+th {
+    background-color: black; 
+    color: white;
+}
 th {text-align: left;}
 </style>
 </head>
 <body>
-
 <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "student01";
-
 // get the q parameter from URL
 $q = $_REQUEST["q"];
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 $hint = "";
-
 // lookup all hints from array if $q is different from "" 
 if ($q !== "") {
     $q = strtoupper($q);
@@ -58,10 +54,8 @@ if ($q !== "") {
         $hint = " ";
         $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c,teaches th WHERE s.usn = m.usn AND m.cin = c.cin and s.usn='$q' and th.cin=m.cin and th.ssn='$name' ORDER BY s.usn, s.sec, s.sem, c.cin ";
                 $result = $conn->query($sql);
-
                 if ($result->num_rows > 0) {
                     // output data of each row
-
                     echo "<table>
                     <tr>
                     <th>usn</th>
@@ -95,10 +89,8 @@ if ($q !== "") {
         }
         }
     }
-
 // Output "no suggestion" if no hint was found or output correct values 
 echo $hint === "" ? "Enter a Valid USN" : $hint;
 ?>
-
 </body>
 </html>

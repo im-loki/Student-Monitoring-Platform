@@ -1,6 +1,5 @@
 <?php 
   session_start(); 
-
   if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
@@ -14,9 +13,9 @@
 ?>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -27,11 +26,15 @@ table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    background-color: bisque;
 }
-
 table, td, th {
     border: 1px solid black;
     padding: 5px;
+}
+th {
+    background-color: black; 
+    color: white;
 }
 th {text-align: left;}
 </style>
@@ -40,12 +43,12 @@ th {text-align: left;}
     <div class="container" style="padding: 20px">
         <div class="row">
             <div class="col-md-10">
+                <h4 class="text-faded" style="color: grey;">Marks of Student belonging to the subject you are currently engaging</h4>
                 <?php
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "student01";
-
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
@@ -56,10 +59,8 @@ th {text-align: left;}
                 $q = "LOKESHWAR";
                 $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c,teaches th WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '7' and m.cin=th.cin and th.ssn='$name' ORDER BY s.usn, s.sec, s.sem, c.cin ";
                 $result = $conn->query($sql);
-
                 if ($result->num_rows > 0) {
                     // output data of each row
-
                     echo "<table>
                     <tr>
                     <th>usn</th>
@@ -102,7 +103,6 @@ th {text-align: left;}
                 $username = "root";
                 $password = "";
                 $dbname = "student01";
-
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
@@ -113,10 +113,8 @@ th {text-align: left;}
                 $q = "LOKESHWAR";
                 $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c,teaches th WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '5' and m.cin=th.cin and th.ssn='$name'  ORDER BY s.usn, s.sec, s.sem, c.cin ";
                 $result = $conn->query($sql);
-
                 if ($result->num_rows > 0) {
                     // output data of each row
-
                     echo "<table>
                     <tr>
                     <th>usn</th>
@@ -159,7 +157,6 @@ th {text-align: left;}
                 $username = "root";
                 $password = "";
                 $dbname = "student01";
-
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
@@ -170,10 +167,8 @@ th {text-align: left;}
                 $q = "LOKESHWAR";
                 $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c,teaches th WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '3' and m.cin=th.cin and th.ssn='$name' ORDER BY s.usn, s.sec, s.sem, c.cin ";
                 $result = $conn->query($sql);
-
                 if ($result->num_rows > 0) {
                     // output data of each row
-
                     echo "<table>
                     <tr>
                     <th>usn</th>

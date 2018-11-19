@@ -1,6 +1,5 @@
 <?php 
   session_start(); 
-
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
   	header('location: login.php');
@@ -22,71 +21,24 @@
 <link href="https://cdn.bootcss.com/tether/1.3.2/css/tether.min.css" rel="stylesheet">
 <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./stylesheets/main.css">
-              <script>
-              function displayDate2() {
-                  var h=name+", "+Date();
-                  document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
-                        document.getElementById("demo2").innerHTML = "";
-                        return;
-                    } else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                document.getElementById("demo2").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "queryengine02.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-                        xmlhttp.send();
-                     }
-                    }
-              </script>
-              <script>
-              function displayDate1() {
-                  var h=name+", "+Date();
-                  document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-                  if (name.length == 0) {
-                        document.getElementById("demo1").innerHTML = "";
-                        return;
-                    } else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                document.getElementById("demo1").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-                        xmlhttp.send();
-                     }
-                    }
-              </script>
 </head>
   <body>
      <nav class="navbar navbar-fixed-top navbar-dark ">
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li><a href="http://localhost/Build/App/student">Student</a></li>
-              <li><a href="http://localhost/Build/App/materials">Materials</a></li>
               <li><a href="http://localhost/Build/App/events">Events</a></li>
               <li><a href="http://localhost/Build/App/survey">Survey</a></li>
             </ul>
       </nav>
-    <div class="container content">
+    <div class="container">
       <hr>
       <br>
       <br>
       <br>
       <br>
         <div class="row" style="display: flex;">
-          <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
+          <div class="col-md-5 title-logo"><img src="./stylesheets/survey.jpg" class="img-responsive"></div>
           <div class="col-md-7 text-right">
             <h3 class="title-super text-uppercase text-thin">Student Survey</h3>
             <h4 class="text-uppercase">Information you need.</h4>
@@ -120,19 +72,16 @@
               <?php endif ?>
         </div>
         </div>
-        <div class="row text-center from_this">
+        <div class="row text-center">
           <h2 class="text-muted">Services</h2>
         </div>
-        <div class="row text-center" style="
-        display: inline-flex; ">
+        <div class="row text-center">
           <div class="col-md-6">
-            <img src="./stylesheets/555x300" class="img-responsive">
-            <h3>Survey-BITCSE</h3>
+            <img src="./stylesheets/s2.jpg" class="img-responsive">
+            <h3>Course End-Survey</h3>
             <p>
               <button onclick="window.location.href='survey01.php'">Click me?</button>
-              <p id="demo2"><?php
-                  echo "This is where javascript, php and mysql interactions are displayed";
-                  ?></p>
+              <p id="demo2"></p>
             </p>
           </div>
         </div>
@@ -159,13 +108,12 @@
             <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com">
                   <span class="fa fa-linkedin"></span>
             </a>
-            <br>
-            <br>
-            <hr>
+          <br><br><hr>
         </div>
     </div>
   <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/tether/1.3.2/js/tether.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+</div>
 </body>
 </html>

@@ -1,7 +1,5 @@
-
 <?php 
   session_start(); 
-
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
   	header('location: login.php');
@@ -14,8 +12,8 @@
 ?>
 <!DOCTYPE html>
 <html lang=en><head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -28,18 +26,14 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "student01";
-
 $q=$_SESSION['username'];
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-echo $q;
-
+//echo $q;
 $sql = "SELECT c.cin,c.name FROM course c,student s WHERE s.usn='$q' and s.sem=c.sem";
 $result = $conn->query($sql);
 $i=0;
@@ -64,19 +58,18 @@ $conn->close();
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li><a href="http://localhost/Build/App/student">Student</a></li>
-              <li><a href="http://localhost/Build/App/materials">Materials</a></li>
               <li><a href="http://localhost/Build/App/events">Events</a></li>
               <li><a href="http://localhost/Build/App/survey">Survey</a></li>
             </ul>
       </nav>
-      <div class="container content">
+      <div class="container">
       <hr>
       <br>
       <br>
         <div class="row" style="display: flex;">
-          <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
+          <div class="col-md-5 title-logo"><img src="./stylesheets/s2.jpg" class="img-responsive"></div>
           <div class="col-md-7 text-right">
-            <h3 class="title-super text-uppercase text-thin">Student Survey</h3>
+            <h3 class="title-super text-uppercase text-thin">Course End-Survey</h3>
             <h6 class="text-uppercase">Answer the question by assigning value between (1-5)</h6>
           </div>
         </div>
@@ -109,14 +102,15 @@ $conn->close();
         </div>
         </div>
         <div class="row text-center from_this">
-          <h2 class="text-muted">Survey</h2>
+          <h2 class="text-muted">Fill This form.</h2>
         </div>
         <div class="row text-center" style="
         display: inline-flex; ">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <form action="actionpage.php" method="post" style="text-align: left">
               USN:<br>
               <input type="text" name="USN" value="<?php echo $_SESSION['username'] ?>">
+              <br>
               <br>
               UNbaised Correction:<br>
               <input type="text" name="Q1" value="5">
@@ -146,4 +140,6 @@ $conn->close();
           <hr>
         </div>
         <br>
+</div>
 </body>
+</html>

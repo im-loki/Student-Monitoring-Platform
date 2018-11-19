@@ -4,6 +4,7 @@
 	font-weight: 300;
 }
 
+
 .button{
 	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.4s;
@@ -24,10 +25,32 @@
 
 .title-super{
 	font-size: 60px;
+    overflow-y: hidden;
 }
 
 .title-logo{
 	margin-top: 10px;
+}
+
+.hm1{
+    display: flex;
+}
+
+.hm2{
+    outline: 2px dotted aqua; 
+    text-align: left; 
+    background-color: aliceblue;
+}
+
+.hm3{
+    outline: 2px dashed aqua;
+    background-color: antiquewhite;
+}
+
+.centering {
+    margin: auto;
+    padding:10px;
+    display: flex;
 }
 
 .text-center{

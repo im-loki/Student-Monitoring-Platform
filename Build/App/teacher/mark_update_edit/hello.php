@@ -1,12 +1,10 @@
 <?php
 session_start();
 // define variables and set to empty values
-
 $usn=$usnErr=$tno=$tnoErr=$test=$testErr=$comment=$sem=$semErr=$code=$codeErr="";
 $flag=1;
-echo $code;
-echo "<br>";
-
+/*echo $code;
+echo "<br>";*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["usn"])) {
     $usnErr = "USN is required";
@@ -19,10 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $flag=0;
     }
   }
-
-  echo $usn;
-  echo " ";
-  
+/*echo $usn;echo " ";*/
   if (empty($_POST["test"])) {
     $testErr = "Subject-Marks is required";
     $flag=0;
@@ -34,48 +29,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $flag=0;
     }
   }
-
-  echo $test;
-  echo " ";
-
+/*echo $test;echo " ";*/
   if (empty($_POST["sem"])) {
     $semErr = "SEM is required";
     $flag=0;
   } else {
     $sem = test_input($_POST["sem"]);
   }
-
-  echo $sem;
-  echo "<br>";
-
+/*echo $sem;echo "<br>";*/
   if (empty($_POST["tno"])) {
     $tnoErr = "Internal NO is required";
     $flag=0;
   } else {
     $tno = test_input($_POST["tno"]);
   }
-
   if (empty($_POST["code"])) {
     $codeErr = "Internal NO is required";
     $flag=0;
   } else {
     $code = test_input($_POST["code"]);
   }
-
-  echo $tno;
-  echo "<br>";
-
+/*echo $tno;echo "<br>";*/
   if($flag==1){
     $msg="in flag";
-    echo "inside flag==1";
+    //echo "inside flag==1";
     $db = mysqli_connect('localhost', 'root', '', 'student01');
-
     $query = "select count(*) as count,test1,test2,test3 from marks where usn='$usn' and cin='$code'";
     $result = mysqli_query($db,$query);
     $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
     if($row['count']==1){
-      echo "Tuple already exists. Updating <br>";
-      echo "Tno: ";echo $tno;
+      /*echo "Tuple already exists. Updating <br>";
+      echo "Tno: ";echo $tno;*/
       $num = $row['count'];
       switch($tno){
         case 1:
@@ -89,8 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         break;
       }
     }else{
-      echo "<br>Tuple doesn't exists. Inserting <br>";
-      echo "Tno: ";echo $tno;
+      //echo "<br>Tuple doesn't exists. Inserting <br>";
+      //echo "Tno: ";echo $tno;
       switch($tno){
         case 1:
         $query = "INSERT INTO marks (usn,cin,finalia,test1,test2,test3) 
@@ -108,12 +92,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     mysqli_query($db, $query);
     header('location: /Build/App/teacher/mark_update_edit/confirmation.php');
-    
     }
-   echo $code;
-echo "<br>";
+   //echo $code;
+//echo "<br>";
   }
-
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);

@@ -14,9 +14,9 @@
 ?>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -27,11 +27,15 @@ table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    background-color: bisque;
 }
-
 table, td, th {
     border: 1px solid black;
     padding: 5px;
+}
+th {
+    background-color: black; 
+    color: white;
 }
 th {text-align: left;}
 </style>
@@ -40,12 +44,12 @@ th {text-align: left;}
     <div class="container" style="padding: 20px">
         <div class="row">
             <div class="col-md-10">
+                <h4 class="text-faded" style="color: grey;">Attendance of Student belonging to the subject you are currently engaging</h4>
                 <?php
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "student01";
-
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
@@ -59,7 +63,6 @@ th {text-align: left;}
 
                 if ($result->num_rows > 0) {
                     // output data of each row
-
                     echo "<table>
                     <tr>
                     <th>usn</th>
@@ -92,7 +95,6 @@ th {text-align: left;}
                 $username = "root";
                 $password = "";
                 $dbname = "student01";
-
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
@@ -103,10 +105,8 @@ th {text-align: left;}
                 $q = "LOKESHWAR";
                 $sql = "SELECT s.usn, s.name, s.sem, a.cin, a.attandance FROM student s, attandance a,teaches th WHERE s.usn = a.usn and s.sem='5' and a.cin=th.cin and th.ssn='$name' ORDER BY s.usn, s.name, a.cin ";
                 $result = $conn->query($sql);
-
                 if ($result->num_rows > 0) {
                     // output data of each row
-
                     echo "<table>
                     <tr>
                     <th>usn</th>
@@ -139,7 +139,6 @@ th {text-align: left;}
                 $username = "root";
                 $password = "";
                 $dbname = "student01";
-
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
@@ -153,7 +152,6 @@ th {text-align: left;}
 
                 if ($result->num_rows > 0) {
                     // output data of each row
-
                     echo "<table>
                     <tr>
                     <th>usn</th>

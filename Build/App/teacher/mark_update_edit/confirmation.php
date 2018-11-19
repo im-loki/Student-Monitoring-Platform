@@ -23,12 +23,12 @@
 		<div class="row text-center" style="
         display: inline-flex; ">
           <div class="col-md-6">
-	            <img src="./stylesheets/555x300" class="img-responsive" data-toggle="modal" data-target="#project1">
+	            <img src="./stylesheets/mark.jpg" class="img-responsive" data-toggle="modal" data-target="#project1">
 	            <h3>Add more enteries.</h3>
 	            <p><a href="http://localhost/Build/App/teacher/mark_update_edit">Link to Register</a></p>
           </div>
           <div class="col-md-6">
-	            <img src="./stylesheets/555x300" class="img-responsive">
+	            <img src="./stylesheets/home.jpg" class="img-responsive">
 	            <h3>Home</h3>
 	            <p><a href= "http://localhost/Build">Link to Register</a></p>
 	          </div>

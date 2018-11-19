@@ -1,10 +1,8 @@
-<?php 
-  session_start(); 
-  ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang=en><head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -15,10 +13,8 @@
 <script>
 // Warning before leaving the page (back button, or outgoinglink)
 window.onbeforeunload = function() {
-   <?php session_destroy() ?>
-   return;
-   //if we return nothing here (just calling return;) then there will be no pop-up question at all
-   //return;
+  <?php session_destroy() ?>
+  return;//if we return nothing here (just calling return;) then there will be no pop-up question at all
 };
 </script>
 </head>
@@ -28,19 +24,15 @@ window.onbeforeunload = function() {
               <li><a href="http://localhost/Build">Home</a></li>
               <li><a href="./teacher">Teacher</a></li>
               <li><a href="./student">Student</a></li>
-              <li><a href="./materials">Materials</a></li>
               <li><a href="./events">Events</a></li>
               <li><a href="./survey">Survey</a></li>
             </ul>
       </nav>
-    <div class="container content">
+    <div class="container">
       <hr>
-      <br>
-      <br>
-      <br>
-      <br>
+      <br><br><br><br>
         <div class="row" style="display: flex;">
-          <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
+          <div class="col-md-5 title-logo"><img src="./stylesheets/logo.jpg" class="img-responsive"></div>
           <div class="col-md-7 text-right">
             <h3 class="title-super text-uppercase text-thin">Home page</h3>
             <h4 class="text-uppercase">Info.Info. All the info you need.</h4>
@@ -51,7 +43,7 @@ window.onbeforeunload = function() {
         </div>
         <div class="row text-center">
           <div class="col-md-12">
-          <img src="./stylesheets/1140x350" class="img-responsive">
+          <img src="./stylesheets/college.jpg" class="img-responsive">
         </div>
         </div>
         <div class="row text-center from_this">
@@ -60,12 +52,12 @@ window.onbeforeunload = function() {
         <div class="row text-center" style="
         display: inline-flex; ">
           <div class="col-md-6">
-            <img src="./stylesheets/555x300" class="img-responsive" data-toggle="modal" data-target="#project1">
+            <img src="./stylesheets/field.png" class="img-responsive" data-toggle="modal" data-target="#project1">
             <h3>Feild Trip</h3>
             <p><a href="http://localhost/Build/App/events">Link to Register</a></p>
           </div>
           <div class="col-md-6">
-            <img src="./stylesheets/555x300" class="img-responsive">
+            <img src="./stylesheets/workshop.jpg" class="img-responsive">
             <h3>Robotics workshop</h3>
             <p><a href= "http://localhost/Build/App/events">Link to Register</a></p>
           </div>
@@ -98,12 +90,9 @@ window.onbeforeunload = function() {
             <hr>
         </div>
     </div>
-
-
-  <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-  <script src="https://cdn.bootcss.com/tether/1.3.2/js/tether.min.js"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/tether/1.3.2/js/tether.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
 </body>
-
-
 </html>

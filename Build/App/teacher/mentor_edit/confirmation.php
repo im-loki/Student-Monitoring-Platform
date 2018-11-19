@@ -19,16 +19,16 @@
             </ul>
       </nav>
 	<div class="container">
-		<div class="row"><div class="col-md-6"><h2>(Mark)Data Entered successfully.</h2></div></div>
+		<div class="row"><div class="col-md-6"><h2>(Report)Data Entered successfully.</h2></div></div>
 		<div class="row text-center" style="
         display: inline-flex; ">
           <div class="col-md-6">
-	            <img src="./stylesheets/555x300" class="img-responsive" data-toggle="modal" data-target="#project1">
+	            <img src="./stylesheets/mentor1.jpg" class="img-responsive" data-toggle="modal" data-target="#project1">
 	            <h3>Add more enteries.</h3>
 	            <p><a href="http://localhost/Build/App/teacher/mentor_edit">Link to Register</a></p>
           </div>
           <div class="col-md-6">
-	            <img src="./stylesheets/555x300" class="img-responsive">
+	            <img src="./stylesheets/home.jpg" class="img-responsive">
 	            <h3>Home</h3>
 	            <p><a href= "http://localhost/Build">Link to home</a></p>
 	          </div>

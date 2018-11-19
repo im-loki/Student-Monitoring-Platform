@@ -1,6 +1,5 @@
 <?php 
   session_start(); 
-
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
   	header('location: login.php');
@@ -92,7 +91,6 @@
       }
     }
 </script>
-
 </head>
   <body>
      <nav class="navbar navbar-fixed-top navbar-dark ">
@@ -176,7 +174,7 @@
         <!-- From here the functionality must be updated -->
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-              <img src="./stylesheets/attendance2.jpg" height=100px width=100px class="img-responsive">
+              <img src="./stylesheets/attendance2.jpg" height="100px" width="100px" class="img-responsive">
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
