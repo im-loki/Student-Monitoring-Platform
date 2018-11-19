@@ -1,3 +1,17 @@
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+  }
+  $name=$_SESSION['username'];
+?>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="">
@@ -38,9 +52,9 @@ th {text-align: left;}
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                echo "<h2> SEM-4::</h2><br>";
+                echo "<h2> SEM-'7'::</h2><br>";
                 $q = "LOKESHWAR";
-                $sql = "SELECT s.usn, s.name, s.sem, a.cin, a.attandance FROM student s, attandance a WHERE s.usn = a.usn and s.sem='4' ORDER BY s.usn, s.name, a.cin ";
+                $sql = "SELECT s.usn, s.name, s.sem, a.cin, a.attandance FROM student s, attandance a,teaches th WHERE s.usn = a.usn and s.sem='7' and a.cin=th.cin and th.ssn='$name' ORDER BY s.usn, s.name, a.cin ";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -85,9 +99,9 @@ th {text-align: left;}
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                echo "<h2> SEM-2::</h2><br>";
+                echo "<h2> SEM-5::</h2><br>";
                 $q = "LOKESHWAR";
-                $sql = "SELECT s.usn, s.name, s.sem, a.cin, a.attandance FROM student s, attandance a WHERE s.usn = a.usn and s.sem='2' ORDER BY s.usn, s.name, a.cin ";
+                $sql = "SELECT s.usn, s.name, s.sem, a.cin, a.attandance FROM student s, attandance a,teaches th WHERE s.usn = a.usn and s.sem='5' and a.cin=th.cin and th.ssn='$name' ORDER BY s.usn, s.name, a.cin ";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -132,9 +146,9 @@ th {text-align: left;}
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                echo "<h2> SEM-1::</h2><br>";
+                echo "<h2> SEM-3::</h2><br>";
                 $q = "LOKESHWAR";
-                $sql = "SELECT s.usn, s.name, s.sem, a.cin, a.attandance FROM student s, attandance a WHERE s.usn = a.usn and s.sem='1' ORDER BY s.usn, s.name, a.cin ";
+                $sql = "SELECT s.usn, s.name, s.sem, a.cin, a.attandance FROM student s, attandance a,teaches th WHERE s.usn = a.usn and s.sem='3' and a.cin=th.cin and th.ssn='$name' ORDER BY s.usn, s.name, a.cin ";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {

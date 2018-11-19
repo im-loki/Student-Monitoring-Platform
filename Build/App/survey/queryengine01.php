@@ -40,15 +40,10 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
 
-    echo "<table>
-    <tr>
-    <th>Name</th>
-    <th>Email</th>
-    </tr>";
+    echo "<table>";
+    
     while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['USERNAME'] . "</td>";
-        echo "<td>" . $row['EMAIL'] . "</td>";
+         $row['USERNAME'] $row['EMAIL'] . "</td>";
         echo "</tr>";
     }
     echo "</table>";    

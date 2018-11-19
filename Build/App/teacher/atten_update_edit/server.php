@@ -7,11 +7,12 @@ $flag=1;
 
 
 
-echo "in server";
-echo $usn;
+//echo "in server";
+/*echo $usn;
 echo $attn;
 echo "<br>";
-echo $code;
+echo $code;*/
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["usn"])) {
     $usnErr = "USN is required";
@@ -52,22 +53,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $sem = test_input($_POST["sem"]);
   }
-  echo $sem;
+  /*echo $sem;
   echo " ";
   echo $flag;
   echo " ";
-  echo $code;
+  echo $code;*/
+  $num=0;
   if($flag==1){
     $msg="in flag";
     echo "inside flag==1";
     $db = mysqli_connect('localhost', 'root','', 'student01');
-
-    $query = "INSERT INTO attandance (usn, cin,attandance) 
+    $query = "select count(*) as count from attandance where usn='$usn' and cin='$code'";
+    $result = mysqli_query($db,$query);
+    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+    if($row['count']==1){
+      $num = $row['count'];
+      $query = "update attandance set attandance='$attn' where usn='$usn' and cin='$code'";
+    }else{
+      $query = "INSERT INTO attandance (usn, cin,attandance) 
           VALUES('$usn', '$code','$attn')";
+    }
     mysqli_query($db, $query);
-    echo $usn;
+    /*echo $usn;
     echo $attn;
+    echo "<br>";
+    echo "num::";
+    echo $num;*/
     header('location: /Build/App/teacher/atten_update_edit/confirmation.php');
+    
   }
 
 

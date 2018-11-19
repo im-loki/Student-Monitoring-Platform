@@ -53,49 +53,7 @@
       xmlhttp.send();
    }
   }
- function displayDate1() {
-  var h=name+", "+Date();
-    document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-    if (name.length == 0) {
-      document.getElementById("demo1").innerHTML = "";
-      return;
-      } else {
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("demo1").innerHTML = this.responseText;
-        }
-      };
-      xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-       xmlhttp.send();
-      }
-    }
-  function displayDate2() { 
-    var h=name+", "+Date();
-    document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
-                  //use this variable name to query the database.
-                  //see codes of (php-ajax) ajax php and database.
-    if (name.length == 0) {
-    document.getElementById("demo2").innerHTML = "";
-    return;
-    } else {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo2").innerHTML = this.responseText;
-       }
-   };
-    xmlhttp.open("GET", "queryengine02.php?q=" + name, true);
-                        //sends query to gethint.php
-                        //update gethint.php build
-    xmlhttp.send();
-  }
-}
-  function displayDate3() {
+  function squery3() {
   var h=name+", "+Date();
     document.getElementById("txtHint03").innerHTML = h;//redundancy used for understanding 
                   //use this variable name to query the database.
@@ -111,6 +69,23 @@
         }
       };
       xmlhttp.open("GET", "queryengine01.php?q=" + name, true);
+                        //sends query to gethint.php
+                        //update gethint.php build
+       xmlhttp.send();
+      }
+    }
+    function squery4() {
+    if (name.length == 0) {
+      document.getElementById("txtHint04").innerHTML = "";
+      return;
+      } else {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("txtHint04").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "queryengine03.php?q=" + name, true);
                         //sends query to gethint.php
                         //update gethint.php build
        xmlhttp.send();
@@ -133,7 +108,7 @@
       <br>
       <br>
         <div class="row" style="display: flex;">
-          <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
+          <div class="col-md-5 title-logo"><img src="./stylesheets/download.png" class="img-responsive"></div>
           <div class="col-md-7 text-right">
             <h3 class="title-super text-uppercase text-thin">Teacher Portal</h3>
             <h4 class="text-uppercase">Information you need.</h4>
@@ -170,32 +145,10 @@
         <div class="row text-center from_this">
           <h2 class="text-muted">Services</h2>
         </div>
-        <div class="row text-center" style="
-        display: inline-flex; ">
-          <div class="col-md-6">
-            <img src="./stylesheets/555x300.jpg" class="img-responsive img-prop" data-toggle="modal" data-target="#project1">
-            <h3>Attendance</h3>
-            <p>
-              <button onclick="displayDate1()">Click me?</button>
-              
-              <p id="demo1"></p>
-            </p>
-          </div>
-          <div class="col-md-6">
-            <img src="./stylesheets/Youth-employability-555x300.jpg" class="img-responsive img-prop">
-            <h3>Internals</h3>
-            <p>
-              <button onclick="displayDate2()">Click me?</button>
-              <p id="demo2"><?php
-                  echo "This is where javascript, php and mysql interactions are displayed";
-                  ?></p>
-            </p>
-          </div>
-        </div>
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <a href="http://localhost/Build/App/teacher/atten_update_edit"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
+            <a href="http://localhost/Build/App/teacher/atten_update_edit"><button><img src="./stylesheets/attendance.jpg" height=100px width=100px class="img-responsive"></button></a>
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
@@ -208,7 +161,7 @@
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <a href="http://localhost/Build/App/teacher/mark_update_edit"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
+            <a href="http://localhost/Build/App/teacher/mark_update_edit"><button><img src="./stylesheets/marks.jpg" height=100px width=100px class="img-responsive"></button></a>
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
@@ -223,7 +176,7 @@
         <!-- From here the functionality must be updated -->
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-              <img src="./stylesheets/100x100" class="img-responsive">
+              <img src="./stylesheets/attendance2.jpg" height=100px width=100px class="img-responsive">
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
@@ -241,7 +194,7 @@
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <img src="./stylesheets/100x100" class="img-responsive">
+            <img src="./stylesheets/marks2.jpg" height=100px width=100px class="img-responsive">
             <br>
           </div>
           <div class="col-md-10" id="hmm" style="display: grid;">
@@ -259,7 +212,7 @@
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <a href="http://localhost/Build/App/teacher/Attendance_all"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
+            <a href="http://localhost/Build/App/teacher/Attendance_all"><button><img src="./stylesheets/attendance2.jpg" height=100px widht=100px class="img-responsive"></button></a>
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
@@ -272,7 +225,7 @@
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <a href="http://localhost/Build/App/teacher/marks_all"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
+            <a href="http://localhost/Build/App/teacher/marks_all"><button><img src="./stylesheets/marks2.jpg" height=100px weight=100px class="img-responsive"></button></a>
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
@@ -285,7 +238,7 @@
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <img src="./stylesheets/100x100" class="img-responsive">
+            <img src="./stylesheets/average.jpg" height=100px width=100px class="img-responsive">
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">
@@ -293,7 +246,7 @@
             <br>
             <p style="color: #737373"> This function allows you to view Avergae marks of all students of a given sem. </p>
             <p>
-              <button onclick="displayDate3()">Click me?</button>
+              <button onclick="squery3()">Click me?</button>
               <p><span id="txtHint03"></span></p>
             </p>
           </div>
@@ -302,7 +255,24 @@
         <hr>
         <div class="row" style="display: inline-flex;">
           <div class="col-md-2">
-            <a href="http://localhost/Build/App/teacher/mentor_edit"><button><img src="./stylesheets/100x100" class="img-responsive"></button></a>
+            <img src="./stylesheets/survey.jpg" height=100px width=100px class="img-responsive">
+            <br>
+          </div>
+          <div class="col-md-10" style="display: grid;">
+            <h4> Class Survey </h4>
+            <br>
+            <p style="color: #737373"> This function allows you to view Avergae marks of all students of a given sem. </p>
+            <p>
+              <button onclick="squery4()">Click me?</button>
+              <p><span id="txtHint04"></span></p>
+            </p>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row" style="display: inline-flex;">
+          <div class="col-md-2">
+            <a href="http://localhost/Build/App/teacher/mentor_edit"><button><img src="./stylesheets/mentor.jpg" width=100px height=100px class="img-responsive"></button></a>
             <br>
           </div>
           <div class="col-md-10" style="display: grid;">

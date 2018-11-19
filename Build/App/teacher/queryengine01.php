@@ -54,20 +54,20 @@ if ($result->num_rows > 0) {
     <th>sem</th>
     <th>sec</th>
     <th>name</th>
-    <th>test1</th>
-    <th>test2</th>
-    <th>test3</th>
-    <th>finalia</th>
+    <th>avg(test1)</th>
+    <th>avg(test2)</th>
+    <th>avg(test3)</th>
+    <th>avg(finalia)</th>
     </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['sem'] . "</td>";
         echo "<td>" . $row['sec'] . "</td>";
         echo "<td>" . $row['name'] . "</td>";
-        echo "<td>" . $row['test1'] . "</td>";
-        echo "<td>" . $row['test2'] . "</td>";
-        echo "<td>" . $row['test3'] . "</td>";
-        echo "<td>" . $row['finalia'] . "</td>";
+        echo "<td>" . round($row['test1']) . "</td>";
+        echo "<td>" . round($row['test2']) . "</td>";
+        echo "<td>" . round($row['test3']) . "</td>";
+        echo "<td>" . round($row['finalia']) . "</td>";
         echo "</tr>";
     }
     echo "</table>";    

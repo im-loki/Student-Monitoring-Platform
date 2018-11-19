@@ -1,4 +1,18 @@
- <!DOCTYPE html>
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+  }
+    $name = $_SESSION['username'];
+?>
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -42,7 +56,7 @@ if ($q !== "") {
     $len=strlen($q);
     if($len == 10){
         $hint = " ";
-        $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c WHERE s.usn = m.usn AND m.cin = c.cin and s.usn='$q' ORDER BY s.usn, s.sec, s.sem, c.cin ";
+        $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c,teaches th WHERE s.usn = m.usn AND m.cin = c.cin and s.usn='$q' and th.cin=m.cin and th.ssn='$name' ORDER BY s.usn, s.sec, s.sem, c.cin ";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -56,7 +70,7 @@ if ($q !== "") {
                     <th>sem</th>
                     <th>cin</th>
                     <th>Subject</th>
-                    <th>attandance</th>
+                    <th>test1</th>
                     <th>test2</th>
                     <th>test3</th>
                     <th>finalia</th>
@@ -71,7 +85,7 @@ if ($q !== "") {
                         echo "<td>" . $row['subject'] . "</td>";
                         echo "<td>" . $row['test1'] . "</td>";
                         echo "<td>" . $row['test2'] . "</td>";
-                        echo "<td>" . $row['tests3'] . "</td>";
+                        echo "<td>" . $row['test3'] . "</td>";
                         echo "<td>" . $row['finalia'] . "</td>";
                         echo "</tr>";
                     }

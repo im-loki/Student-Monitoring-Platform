@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./stylesheets/main.css"
 <style>
 .error {color: #FF0000;}
 </style>
@@ -21,7 +22,7 @@ $count=0; ?>
     $username = "root";
     $password = "";
     $dbname = "student01";
-    echo "in sem";
+    //echo "in sem";
     if (empty($_POST["sem"])) {
     $semErr = "SEM is required";
       } else {
@@ -36,7 +37,7 @@ $count=0; ?>
     }
 
     $sql = "select c.name as name,c.cin as cin from teacher t,teaches th,course c where t.ssn='$ssn' and t.ssn=th.ssn and th.cin=c.cin and c.sem='$sem'";
-    echo "query done";
+    //echo "query done";
     $result = $conn->query($sql);
     $i=0;
     if ($result->num_rows > 0) {
@@ -46,12 +47,12 @@ $count=0; ?>
         $i++;
       }
     }
-    echo $cin[0];
+    //echo $cin[0];
     $cinn=$cin[0];
   ?>
 </head>
-<body>
-    <div class="container">
+<body >
+    <div class="container content">
         <nav class="navbar navbar-fixed-top navbar-dark ">
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
@@ -61,7 +62,7 @@ $count=0; ?>
 <div class="row" style="display: flex;">
           <div class="col-md-5 title-logo"><img src="./stylesheets/100x100" class="img-responsive"></div>
           <div class="col-md-7 text-right">
-            <h3 class="title-super text-uppercase text-thin">update atten</h3>
+            <h3 class="title-super text-uppercase text-thin">update attendance</h3>
             <h4 class="text-uppercase">Information you need.</h4>
           </div>
         </div>
@@ -120,7 +121,7 @@ $count=0; ?>
 </div>
 
 <div class="row">
-    <div class="col-md-12">
+    <div >
         <br>
   <form method="post" action="index.php">  
     USN: <input type="text" name="usn" value="<?php echo $usn;?>">
@@ -128,6 +129,8 @@ $count=0; ?>
     <br><br>
     Code: <input type="text" name="code" value="<?php echo $cin[0]; ?>">
     <span class="error">* <?php echo $codeErr; ?></span>
+    <br>
+    <br>
     <?php echo $cin[0].":" ;?> <input type="text" name="attn" value="<?php echo $attn;?>">
     <span class="error">* <?php echo $attnErr;?></span>
     <br><br>

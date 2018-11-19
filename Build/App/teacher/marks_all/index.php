@@ -1,3 +1,17 @@
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+  }
+  $name=$_SESSION['username'];
+?>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="">
@@ -38,9 +52,9 @@ th {text-align: left;}
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                echo "<h2> SEM-4::</h2><br>";
+                echo "<h2> SEM-7::</h2><br>";
                 $q = "LOKESHWAR";
-                $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '4' ORDER BY s.usn, s.sec, s.sem, c.cin ";
+                $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c,teaches th WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '7' and m.cin=th.cin and th.ssn='$name' ORDER BY s.usn, s.sec, s.sem, c.cin ";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -69,7 +83,7 @@ th {text-align: left;}
                         echo "<td>" . $row['subject'] . "</td>";
                         echo "<td>" . $row['test1'] . "</td>";
                         echo "<td>" . $row['test2'] . "</td>";
-                        echo "<td>" . $row['tests3'] . "</td>";
+                        echo "<td>" . $row['test3'] . "</td>";
                         echo "<td>" . $row['finalia'] . "</td>";
                         echo "</tr>";
                     }
@@ -95,9 +109,9 @@ th {text-align: left;}
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                echo "<h2> SEM-4::</h2><br>";
+                echo "<h2> SEM-5::</h2><br>";
                 $q = "LOKESHWAR";
-                $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '4' ORDER BY s.usn, s.sec, s.sem, c.cin ";
+                $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c,teaches th WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '5' and m.cin=th.cin and th.ssn='$name'  ORDER BY s.usn, s.sec, s.sem, c.cin ";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -126,7 +140,7 @@ th {text-align: left;}
                         echo "<td>" . $row['subject'] . "</td>";
                         echo "<td>" . $row['test1'] . "</td>";
                         echo "<td>" . $row['test2'] . "</td>";
-                        echo "<td>" . $row['tests3'] . "</td>";
+                        echo "<td>" . $row['test3'] . "</td>";
                         echo "<td>" . $row['finalia'] . "</td>";
                         echo "</tr>";
                     }
@@ -152,9 +166,9 @@ th {text-align: left;}
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                echo "<h2> SEM-4::</h2><br>";
+                echo "<h2> SEM-3::</h2><br>";
                 $q = "LOKESHWAR";
-                $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '4' ORDER BY s.usn, s.sec, s.sem, c.cin ";
+                $sql = "SELECT s.usn, s.name, s.sec, s.sem, m.cin, c.name as subject, m.test1, m.test2, m.test3, m.finalia FROM student s, marks m, course c,teaches th WHERE s.usn = m.usn AND m.cin = c.cin AND s.sem = '3' and m.cin=th.cin and th.ssn='$name' ORDER BY s.usn, s.sec, s.sem, c.cin ";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -183,7 +197,7 @@ th {text-align: left;}
                         echo "<td>" . $row['subject'] . "</td>";
                         echo "<td>" . $row['test1'] . "</td>";
                         echo "<td>" . $row['test2'] . "</td>";
-                        echo "<td>" . $row['tests3'] . "</td>";
+                        echo "<td>" . $row['test3'] . "</td>";
                         echo "<td>" . $row['finalia'] . "</td>";
                         echo "</tr>";
                     }

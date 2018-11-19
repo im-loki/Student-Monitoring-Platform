@@ -70,21 +70,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "inside flag==1";
     $db = mysqli_connect('localhost', 'root', '', 'student01');
 
-    if($tno==1){
-      echo " in tno=1 ";
-      echo $code;
-      echo "hello";
-    $query = "INSERT INTO marks (usn,cin,finalia,test1,test2,test3) 
+    $query = "select count(*) as count,test1,test2,test3 from marks where usn='$usn' and cin='$code'";
+    $result = mysqli_query($db,$query);
+    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+    if($row['count']==1){
+      echo "Tuple already exists. Updating <br>";
+      echo "Tno: ";echo $tno;
+      $num = $row['count'];
+      switch($tno){
+        case 1:
+        $query = "UPDATE marks set test1='$test' where usn='$usn' and cin='$code'";
+        break;
+        case 2:
+        $query = "UPDATE marks set test2='$test' where usn='$usn' and cin='$code'";
+        break;
+        case 3:
+        $query = "UPDATE marks set test3='$test' where usn='$usn' and cin='$code'";
+        break;
+      }
+    }else{
+      echo "<br>Tuple doesn't exists. Inserting <br>";
+      echo "Tno: ";echo $tno;
+      switch($tno){
+        case 1:
+        $query = "INSERT INTO marks (usn,cin,finalia,test1,test2,test3) 
           VALUES('$usn', '$code', '0', '$test','0','0')";
-        }
-    else if($tno==2){
-      $query = "UPDATE marks set test2='$test' where usn='$usn' and cin='$code'";
+          break;
+        case 2:
+        $query = "INSERT INTO marks (usn,cin,finalia,test1,test2,test3) 
+          VALUES('$usn', '$code', '0', '0','$test','0')";
+          break;
+        case 3:
+        $query = "INSERT INTO marks (usn,cin,finalia,test1,test2,test3) 
+          VALUES('$usn', '$code', '0', '0','0','$test')";
+          break;
+      }
     }
-    else{
-      $query = "UPDATE marks set test3='$test' where usn='$usn' and cin='$code'";
-    }
-     mysqli_query($db, $query);
-     header('location: /Build/App/teacher/mark_update_edit/confirmation.php');
+    mysqli_query($db, $query);
+    header('location: /Build/App/teacher/mark_update_edit/confirmation.php');
     
     }
    echo $code;

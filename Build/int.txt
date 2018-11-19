@@ -1,0 +1,2 @@
+register teacher with username = the ssn of the teacher.
+register student with username = the usn of the student.

@@ -44,9 +44,9 @@ $sql = "SELECT
 FROM
     marks m,
     course c
-
 WHERE
-    usn = '$q'";
+    usn = '$q'
+    and c.cin=m.cin";
 
 
 $result = $conn->query($sql);

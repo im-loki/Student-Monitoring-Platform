@@ -35,7 +35,7 @@ if ($conn->connect_error) {
 }
 
 $sql = "SELECT
-    a.attandance as a,
+    a.attandance AS a,
     a.cin as Subcode,
     c.name as name
 FROM
