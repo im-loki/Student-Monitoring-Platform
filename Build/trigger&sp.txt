@@ -1,0 +1,21 @@
+#############################################--Stored Procedure--####################################################
+name: event_signup
+stcode: usn
+output: @out
+select event_name as Name from participates p,events_list e where usn=stcode and e.event_id=p.event_id
+
+call from php using procedural.
+$result = mysqli_query($connection, 
+    "CALL event_signup('$q',@out);") or die("Query fail: " . mysqli_error());
+
+#################################################--Trigger--#########################################################
+name: marks_finalia
+table: marks
+time: before
+event: update
+
+begin 
+set new.finalia=round((new.test1+new.test2+new.test3-least(new.test1,new.test2,new.test3))/2); 
+end
+
+#####################################################################################################################
